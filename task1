@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #converter {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="converter">
+        <h2>Temperature Converter</h2>
+        <label for="celsius">Enter temperature in Celsius:</label>
+        <input type="number" id="celsius">
+        <button onclick="convertTemperature()">Convert</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            const celsiusInput = document.getElementById("celsius");
+            const resultDiv = document.getElementById("result");
+
+            const celsius = parseFloat(celsiusInput.value);
+
+            if (isNaN(celsius)) {
+                resultDiv.innerHTML = "Please enter a valid temperature.";
+                return;
+            }
+
+            const fahrenheit = (celsius * 9/5) + 32;
+            resultDiv.innerHTML = `${celsius}°C is equal to ${fahrenheit.toFixed(2)}°F.`;
+        }
+    </script>
+</body>
+</html>
